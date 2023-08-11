@@ -8,57 +8,71 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyScreen(),
-    );
-  }
-}
-
-class MyScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          // Background Image
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/Wallpaper.jpeg'),
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-          // Columns
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                color: Colors.white.withOpacity(0.8),
-                padding: EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    Text(
-                      'مرحبًا بك في التطبيق',
-                      style: TextStyle(
-                        fontSize: 24.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 16.0),
-                    // إضافة المزيد من العناصر هنا
-                    ElevatedButton(
-                      onPressed: () {
-                        // إضافة إجراء الزر هنا
-                      },
-                      child: Text('زر الإجراء'),
-                    ),
-                  ],
+      home: Scaffold(
+        body: Stack(
+          children: [
+            // Background Image
+            Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('images/Wallpaper.png'),
+                  fit: BoxFit.cover,
                 ),
               ),
-            ],
-          ),
-        ],
+            ),
+            // Foreground Widgets
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.25),
+                  child: Center(
+                    child: Column(
+                      children: [
+                        Image.asset('images/qu.png', width: 200, height: 150),
+                        SizedBox(height: 10),
+                        Text(
+                          'iti quiz app',
+                          style: TextStyle(
+                            fontFamily: 'Pacifico',
+                            fontSize: 50,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.yellow,
+                          ),
+                        ),
+                        SizedBox(height: 20),
+                        Text(
+                          'we are creativ, enjoy our App',
+                          style: TextStyle(
+                            fontFamily: 'DancingScript',
+                            fontSize: 30,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(height: 300),
+                ElevatedButton(
+                  onPressed: () {
+                    // Add your button logic here
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.blue,
+                    minimumSize: Size(MediaQuery.of(context).size.width, 50),
+                  ),
+                  child: Text(
+                    'start',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
